@@ -167,10 +167,9 @@ Token* parse_token(Formula* formula, const char* expr, size_t expr_size) {
       token.symbol = expr[i];
       stack_push(stack, expr[i]);
     }else if(expr[i] == ')') {
-      char close_curly = stack_pop(stack);
+      // char close_curly = stack_pop(stack);
       char open_curly = stack_pop(stack);
       assert(open_curly == '(');
-      dump_formula_table(formula);
       estimate_formula(formula);
     }else if(expr[i] >= 'a' && expr[i] <= 'z') {
       char symbol = expr[i];
